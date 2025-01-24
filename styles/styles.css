@@ -1,0 +1,38 @@
+* {
+  border: 1px solid black;
+}
+
+#body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn_difficulte {
+  border: 1px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+#difficulte {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 0.75em;
+  width: 490px;
+}
+
+#grille-jeu {
+  display: flex;
+  flex-wrap: wrap;
+  grid-template-columns: repeat(2, 1fr);
+  width: 500px;
+  height: 500px;
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+}
