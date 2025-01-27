@@ -7,12 +7,14 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background-color: #a9a9a9;
 }
 
 .btn_difficulte {
   border: 1px solid black;
   display: flex;
   justify-content: center;
+  background-color: white;
 }
 
 #difficulte {
@@ -35,4 +37,6 @@
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
+  background-color: #d3d3d3;
+  height: 100%;
 }
