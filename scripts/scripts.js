@@ -18,7 +18,7 @@ $(document).ready(() => {
     );
   }
 
-  function obtenirVoisins(ligne, colonne, diagonal) {
+  function obtenirVoisins(ligne, colonne) {
     let voisins = [];
     for (let l = ligne - 1; l < ligne + 2; l++) {
       if (l < 0 || l >= grille.length) continue;
@@ -26,8 +26,6 @@ $(document).ready(() => {
         if (c < 0 || c >= grille.length || (l == ligne && c == colonne)) {
           continue;
         }
-        if (!diagonal && Math.abs(l - ligne) + Math.abs(c - colonne) > 1)
-          continue;
         voisins.push({ ligne: l, colonne: c });
       }
     }
@@ -36,7 +34,7 @@ $(document).ready(() => {
 
   function compterBombesVoisines(ligne, colonne) {
     let compte = 0;
-    const voisins = obtenirVoisins(ligne, colonne, true);
+    const voisins = obtenirVoisins(ligne, colonne);
     for (const voisin of voisins) {
       if (grille[voisin.ligne][voisin.colonne] == BOMBES) compte++;
     }
@@ -50,8 +48,9 @@ $(document).ready(() => {
   }
 
   function obtenirCoordonneesZoneDiffusion(ligne, colonne) {
-    if (grille[ligne][colonne] == BOMBES) return null;
+    if (grille[ligne][colonne] === BOMBES) return null;
     let P = [{ ligne: ligne, colonne: colonne }];
+    if (grille[ligne][colonne] !== 0) return P;
     let B = [];
     let C = [];
     do {
